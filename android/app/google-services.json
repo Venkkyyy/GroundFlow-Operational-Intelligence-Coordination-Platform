@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "60616715172",
+    "project_id": "groundflow-acca3",
+    "storage_bucket": "groundflow-acca3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60616715172:android:432feaa314f63555906f31",
+        "android_client_info": {
+          "package_name": "com.venky.GroundFlow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60616715172-a2oghg73lsqcglamkrfg5ogs1vmbfaoi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.venky.GroundFlow",
+            "certificate_hash": "7f11d6eab440cf8dc987a296073156e3ac058267"
+          }
+        },
+        {
+          "client_id": "60616715172-nb3cueihsjm8b64oglcdlcnndl5t1g36.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsShzNw66MPiVM46OKV2t09ONgEVngnq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60616715172-nb3cueihsjm8b64oglcdlcnndl5t1g36.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "60616715172-n90f807rm63eq8rg62chdb4p9k21lb95.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.venky.GroundFlow"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

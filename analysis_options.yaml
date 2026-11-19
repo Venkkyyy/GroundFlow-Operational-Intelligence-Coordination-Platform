@@ -1,0 +1,15 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    deprecated_member_use: ignore
+    prefer_const_constructors: ignore
+    prefer_const_literals_to_create_immutables: ignore
+    prefer_typing_uninitialized_variables: ignore
+    unused_field: ignore
+    unused_local_variable: ignore
+    prefer_final_fields: ignore
+
+linter:
+  rules:
+    avoid_print: false
