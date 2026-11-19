@@ -5,6 +5,7 @@ import 'core/state/ground_flow_realtime_store.dart';
 import 'core/auth/firebase_auth_service.dart';
 import 'features/auth/groundflow_login_screen.dart';
 import 'features/home/global_brand_home_screen.dart';
+import 'features/splash/groundflow_splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,6 +34,15 @@ class GroundFlowApp extends StatefulWidget {
 
 class _GroundFlowAppState extends State<GroundFlowApp> {
   final GroundFlowRealtimeStore _store = GroundFlowRealtimeStore();
+  bool _showSplash = true;
+
+  void _onSplashFinished() {
+    if (mounted) {
+      setState(() {
+        _showSplash = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,24 +50,28 @@ class _GroundFlowAppState extends State<GroundFlowApp> {
       title: 'GroundFlow',
       debugShowCheckedModeBanner: false,
       theme: GlassTheme.theme,
-      home: ListenableBuilder(
-        listenable: _store,
-        builder: (context, _) {
-          if (_store.isAuthenticated) {
-            return GlobalBrandHomeScreen(
-              onSignOut: () {
-                _store.signOut();
-                if (mounted) setState(() {});
+      home: _showSplash
+          ? GroundFlowSplashScreen(
+              onAnimationComplete: _onSplashFinished,
+            )
+          : ListenableBuilder(
+              listenable: _store,
+              builder: (context, _) {
+                if (_store.isAuthenticated) {
+                  return GlobalBrandHomeScreen(
+                    onSignOut: () {
+                      _store.signOut();
+                      if (mounted) setState(() {});
+                    },
+                  );
+                }
+                return GroundFlowLoginScreen(
+                  onLoginSuccess: () {
+                    if (mounted) setState(() {});
+                  },
+                );
               },
-            );
-          }
-          return GroundFlowLoginScreen(
-            onLoginSuccess: () {
-              if (mounted) setState(() {});
-            },
-          );
-        },
-      ),
+            ),
     );
   }
 }
